@@ -1,0 +1,14 @@
+docker exec --workdir /opt/kafka/bin/ -it broker sh
+sh kafka-topics.sh --bootstrap-server localhost:9092 --create --replication-factor 1 --partitions 1 --topic test
+sh kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic test
+sh kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test
+sh kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+
+
+delete kafka topic:
+
+sh kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic test
+
+list topics
+
+sh kafka-topics.sh --bootstrap-server=localhost:9092 --list
